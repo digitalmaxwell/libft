@@ -14,26 +14,21 @@
 
 char *ft_strdup(const char *s1)
 {
-	char *copy;
-	char *copy2;
+	size_t len;
+	char *s2;
 
-	copy = malloc(sizeof(char *) * ft_strlen(s1) + 1);
-	copy2 = copy;
-
-	if (!copy)
-	{
-		errno = ENOMEM;
+	len = ft_strlen(s1) + 1;
+	if(!(s2 = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
-	}
 
-	while (*s1)
-	{
-		*copy = *s1;
-		s1++;
-		copy++;
-	}
-
-	*copy = '\0';
-
-	return (copy2);
+	s2 = ft_strcpy(s2, s1);
+	return (s2);
 }
+
+// int		main()
+// {
+// 	char test[] = "sup";
+
+// 	printf("%s", ft_strdup(test));
+// 	return (0);
+// }

@@ -23,7 +23,8 @@ char *ft_strncpy(char *dst, const char *src, size_t len)
 		if (src[i])
 			dst[i] = src[i];
 		else
-			dst[i] = '\0';
+			while (i < len)
+				dst[i++] = '\0';
 		i++;
 	}
 

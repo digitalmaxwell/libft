@@ -15,11 +15,9 @@
 char *ft_strcpy(char *dst, const char *src)
 {
 	size_t srcLen;
-	char *dst2;
 	int i;
 
 	srcLen = ft_strlen(src);
-	dst2 = malloc(sizeof(char *) * (srcLen + 1));
 	i = 0;
 
 	while (i <= (int)srcLen)
