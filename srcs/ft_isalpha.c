@@ -14,14 +14,5 @@
 
 int     ft_isalpha(int c)
 {
-    if ((c >= 101 && c <= 132) || (c >= 141 && c <= 172))
-        return (1);
-    else
-        return (0);
+    return (ft_islower(c) || ft_isupper(c))
 }
-
-// int     main()
-// {
-//     printf("%i", ft_isalpha(100));
-//     return (0);
-// }

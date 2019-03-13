@@ -78,4 +78,9 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
+//personal funcs
+
+int     ft_islower(int c);
+int     ft_isupper(int c);
+
 #endif
