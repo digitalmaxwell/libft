@@ -19,11 +19,12 @@ void    *ft_memalloc(size_t size)
 
     arr = NULL;
 
-    if (size > 0)
+    if (size > 0 && size <= 2147483647)
     {
         arr = malloc(sizeof(int) * size);
+        if (!arr)
+            return (NULL);
         arr2 = (int *)arr;
-
         while (*arr2)
         {
             *arr2 = 0;

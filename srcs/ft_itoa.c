@@ -28,11 +28,10 @@ char    *ft_itoa(int n)
     int sign;
     int len;
     char *a;
-    
 
     i = 0;
-    len = getStrLen(n);
     sign = 1;
+    len = getStrLen(n);
 
     if (n < 0)
     {
@@ -42,6 +41,9 @@ char    *ft_itoa(int n)
     }
     
     a = malloc(sizeof(char) * len + 1);
+    if (!a)
+        return (NULL);
+
     a[len] = '\0';
 
     while (len--)
