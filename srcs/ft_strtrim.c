@@ -12,36 +12,47 @@
 
 #include "../libft.h"
 
-static int     isWhitespace(char c)
-{
-    if (c == ' ' || c == '\n' || c == '\t')
-        return (1);
-    return (0);
-}
-
 char    *ft_strtrim(char const *s)
 {
-    char *trimmed;
-    size_t sLen;
+    // char *trimmed;
+    // size_t sLen;
 
-    trimmed = (char *)s;
+    // if (!s)
+    //     return (NULL);
 
-    while (*trimmed)
-    {
-        if (isWhitespace(*trimmed))
-            trimmed++;
-        else
-            break;
-    }
+    // trimmed = (char *)s;
+    // sLen = ft_strlen(trimmed);
 
-    sLen = ft_strlen(trimmed);
-    
-    while (isWhitespace(trimmed[sLen - 1]))
-        sLen--;
+    // while (ft_iswhitespace(*trimmed))
+    //     trimmed++;
+    // while (sLen && ft_iswhitespace(trimmed[sLen - 1]))
+    //     sLen--;
 
-    trimmed = ft_strsub(trimmed, 0, sLen);
+    // trimmed = ft_strsub(trimmed, 0, sLen);
 
-    return(trimmed);
+    // return (trimmed);
+
+	char	*result;
+	size_t	i;
+	size_t	start;
+	size_t	finish;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	start = 0;
+	finish = ft_strlen(s);
+	while (ft_iswhitespace(s[start]) || s[start] == '\n')
+		start++;
+	while (finish && (ft_iswhitespace(s[finish - 1]) || s[finish - 1] == '\n'))
+		finish--;
+	if ((result = ft_strnew((finish > start) ? (finish - start) : 0))) //??
+	{
+		while (start < finish)
+			result[i++] = s[start++];
+		result[i] = '\0';
+	}
+	return (result);
 }
 
 // int     main()

@@ -15,21 +15,15 @@
 void    *ft_memalloc(size_t size)
 {
     void *arr;
-    int *arr2;
 
     arr = NULL;
 
     if (size > 0 && size <= 2147483647)
     {
         arr = malloc(sizeof(int) * size);
-        if (!arr)
+        if (arr == NULL)
             return (NULL);
-        arr2 = (int *)arr;
-        while (*arr2)
-        {
-            *arr2 = 0;
-            arr2++;
-        }
+        ft_bzero(arr, size);
     }
 
     return (arr);

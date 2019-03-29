@@ -14,16 +14,9 @@
 
 void    ft_memdel(void **ap)
 {
-    unsigned char **p;
-    int i;
-
-    p = (unsigned char **)ap;
-    i = 0;
-
-    while (p[i])
-    {
-        free(p[i]);
-        i++;
+	if (ap && *ap)
+	{
+		free(*ap);
+		*ap = NULL;
     }
-    ap = NULL;
 }
