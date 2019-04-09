@@ -14,24 +14,6 @@
 
 char    *ft_strtrim(char const *s)
 {
-    // char *trimmed;
-    // size_t sLen;
-
-    // if (!s)
-    //     return (NULL);
-
-    // trimmed = (char *)s;
-    // sLen = ft_strlen(trimmed);
-
-    // while (ft_iswhitespace(*trimmed))
-    //     trimmed++;
-    // while (sLen && ft_iswhitespace(trimmed[sLen - 1]))
-    //     sLen--;
-
-    // trimmed = ft_strsub(trimmed, 0, sLen);
-
-    // return (trimmed);
-
 	char	*result;
 	size_t	i;
 	size_t	start;
@@ -46,7 +28,7 @@ char    *ft_strtrim(char const *s)
 		start++;
 	while (finish && (ft_iswhitespace(s[finish - 1]) || s[finish - 1] == '\n'))
 		finish--;
-	if ((result = ft_strnew((finish > start) ? (finish - start) : 0))) //??
+	if ((result = ft_strnew((finish > start) ? (finish - start) : 0)))
 	{
 		while (start < finish)
 			result[i++] = s[start++];

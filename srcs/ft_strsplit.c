@@ -52,10 +52,12 @@ char **ft_strsplit(char const *s, char c)
     i = 0;
     i2 = 0;
     i3 = 0;
-    strLen = ft_strlen((char *)s);
-    split = malloc(sizeof(char **) * (countWords((char *)s, c) + 1));
     wordStart = 0;
+    strLen = ft_strlen((char *)s);
     wordLen = 0;
+    split = malloc(sizeof(char **) * (countWords((char *)s, c) + 1));
+    if (!split)
+        return (NULL);
 
     while (s[i])
     {
