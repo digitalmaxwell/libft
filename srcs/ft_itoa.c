@@ -33,13 +33,16 @@ char    *ft_itoa(int n)
     sign = 1;
     len = getStrLen(n);
 
+    if (n == -2147483648)
+        return (ft_strdup("-2147483648"));
+
     if (n < 0)
     {
         sign = -1;
         len++;
         n *= sign;
     }
-    
+
     a = malloc(sizeof(char) * len + 1);
     if (!a)
         return (NULL);
