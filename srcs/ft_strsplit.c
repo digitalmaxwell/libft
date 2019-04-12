@@ -72,18 +72,10 @@ char **ft_strsplit(char const *s, char c)
     size_t wordLen;
     size_t strLen;
     int words;
-    int wordStart;
     char **split;
-    int curr;
     int i;
-    int i2;
-    int i3;
 
-    curr = 0;
     i = 0;
-    i2 = 0;
-    i3 = 0;
-    wordStart = 0;
     wordLen = 0;
     strLen = ft_strlen((char *)s);
     words = countWords((char *)s, c);
