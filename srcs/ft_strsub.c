@@ -12,17 +12,20 @@
 
 #include "../libft.h"
 
-char *ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
     char *subStr;
 
+	if (!s)
+		return (NULL);
+
     subStr = malloc(sizeof(char) * len + 1);
-	if (subStr)
-	{
-		while (start--)
-			s++;
-		ft_strncpy(subStr, s, len);
-		subStr[len] = '\0';
-	}
+
+	if (!subStr)
+		return (NULL);
+	while (start--)
+		s++;
+	ft_strncpy(subStr, s, len);
+	subStr[len] = '\0';
     return (subStr);
 }

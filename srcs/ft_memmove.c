@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t i;
 
@@ -39,12 +39,3 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 
 	return (dst);
 }
-
-// int		main()
-// {
-// 	char dst[] = "test";
-// 	char src[] = "yo";
-
-// 	printf("%p", dst, src, 2);
-// 	return (0);
-// }

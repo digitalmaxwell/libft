@@ -12,23 +12,15 @@
 
 #include "../libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	size_t len;
 	char *s2;
 
 	len = ft_strlen(s1) + 1;
-	if(!(s2 = (char *)malloc(sizeof(char) * len)))
+	if (!(s2 = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
 
 	s2 = ft_strcpy(s2, s1);
 	return (s2);
 }
-
-// int		main()
-// {
-// 	char test[] = "sup";
-
-// 	printf("%s", ft_strdup(test));
-// 	return (0);
-// }

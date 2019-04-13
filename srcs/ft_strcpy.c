@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-char *ft_strcpy(char *dst, const char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t srcLen;
 	int i;
@@ -25,6 +25,6 @@ char *ft_strcpy(char *dst, const char *src)
 		dst[i] = src[i];
 		i++;
 	}
-	
+
 	return (dst);
 }

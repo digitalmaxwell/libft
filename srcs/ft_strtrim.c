@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-char    *ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
 	char	*result;
 	size_t	i;
@@ -36,10 +36,3 @@ char    *ft_strtrim(char const *s)
 	}
 	return (result);
 }
-
-// int     main()
-// {
-//     char const trim[] = "       trim me         ";
-//     printf("%s", ft_strtrim(trim));
-//     return (0);
-// }

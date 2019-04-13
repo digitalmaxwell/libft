@@ -12,61 +12,53 @@
 
 #include "../libft.h"
 
-static int     getStrLen(int n)
+static int	getStrLen(int n)
 {
-    int i;
+	int i;
 
-    i = 1;
-    while (n /= 10)
-        i++;
-    return (i);
+	i = 1;
+	while (n /= 10)
+		i++;
+	return (i);
 }
 
-char    *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int i;
-    int sign;
-    int len;
-    char *a;
+	int i;
+	int sign;
+	int len;
+	char *a;
 
-    i = 0;
-    sign = 1;
-    len = getStrLen(n);
+	i = 0;
+	sign = 1;
+	len = getStrLen(n);
 
-    if (n == -2147483648)
-        return (ft_strdup("-2147483648"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 
-    if (n < 0)
-    {
-        sign = -1;
-        len++;
-        n *= sign;
-    }
+	if (n < 0)
+	{
+		sign = -1;
+		len++;
+		n *= sign;
+	}
 
-    a = malloc(sizeof(char) * len + 1);
-    if (!a)
-        return (NULL);
+	a = malloc(sizeof(char) * len + 1);
+	if (!a)
+		return (NULL);
 
-    a[len] = '\0';
+	a[len] = '\0';
 
-    while (len--)
-    {
-        if (len == 0 && sign < 0)
-            a[len] = '-';
-        else
-        {
-            a[len] = (n % 10) + '0';
-            n = n / 10;   
-        }
-    }
+	while (len--)
+	{
+		if (len == 0 && sign < 0)
+			a[len] = '-';
+		else
+		{
+			a[len] = (n % 10) + '0';
+			n = n / 10;
+		}
+	}
 
-    return (a);
+	return (a);
 }
-
-// int     main()
-// {
-//     int i = -100000010;
-
-//     printf("%s\n", ft_itoa(i));
-//     return (0);
-// }

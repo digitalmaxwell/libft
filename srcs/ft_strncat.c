@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-char *ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	char *s1p;
 	int i;
@@ -31,13 +31,3 @@ char *ft_strncat(char *s1, const char *s2, size_t n)
 	*s1p = '\0';
 	return (s1);   
 }
-
-// int		main()
-// {
-// 	char s1[] = "test";
-// 	char s2[] = "test2";
-//     size_t n = 4;
-
-// 	printf("%s\n", ft_strncat(s1, s2, n));
-// 	return (0);
-// }

@@ -12,31 +12,31 @@
 
 #include "../libft.h"
 
-static int countWords(char *s, char c)
+static int	countWords(char *s, char c)
 {
-    int words;
-    int i;
-    int isWord;
+	int words;
+	int i;
+	int is_word;
 
-    i = 0;
-    words = 0;
-    isWord = 0;
+	i = 0;
+	words = 0;
+	is_word = 0;
 
-    while (s[i])
-    {
-        if (s[i] == c)
-        {
-            if (isWord)
-                isWord = 0;
-        }
-        else if (!isWord)
-        {
-            words++;
-            isWord = 1;
-        }
-        i++;
-    }
-    return (words);
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			if (is_word)
+				is_word = 0;
+		}
+		else if (!is_word)
+		{
+			words++;
+			is_word = 1;
+		}
+		i++;
+	}
+	return (words);
 }
 
 static size_t	word_len(char const *s, char c)
@@ -49,15 +49,14 @@ static size_t	word_len(char const *s, char c)
 	return (i);
 }
 
-static char		*next_word(char const *s, char c)
+static char	*next_word(char const *s, char c)
 {
 	while (*s && *s == c)
 		s++;
 	return ((char *)s);
 }
 
-
-static void		clean(char **split, size_t cur)
+static void	clean(char **split, size_t cur)
 {
 	while (cur > 0)
 	{
@@ -67,57 +66,37 @@ static void		clean(char **split, size_t cur)
 	ft_strdel(split);
 }
 
-char **ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
-    size_t wordLen;
-    size_t strLen;
-    int words;
-    char **split;
-    int i;
+	size_t wordLen;
+	size_t strLen;
+	int words;
+	char **split;
+	int i;
 
-    i = 0;
-    wordLen = 0;
-    strLen = ft_strlen((char *)s);
-    words = countWords((char *)s, c);
-    split = malloc(sizeof(char **) * (words + 1));
+	if (!s)
+		return (NULL);
 
-    if (!split)
-        return (NULL);
+	i = 0;
+	wordLen = 0;
+	strLen = ft_strlen((char *)s);
+	words = countWords((char *)s, c);
+	split = malloc(sizeof(char **) * (words + 1));
 
-    while (i < words)
-    {
-        s = next_word(s, c);
-        split[i] = ft_strsub(s, 0, word_len(s, c));
+	if (!split)
+		return (NULL);
+	while (i < words)
+	{
+		s = next_word(s, c);
+		split[i] = ft_strsub(s, 0, word_len(s, c));
 		if (!split[i])
 		{
 			clean(split, i);
 			return (NULL);
 		}
-        i++;
-        s += word_len(s, c);
-    }
-
-    split[words] = 0;
-    return (split);
+		i++;
+		s += word_len(s, c);
+	}
+	split[words] = 0;
+	return (split);
 }
-
-// int     main()
-// {
-//     char s[] = "test***test**test*test*";
-//     char c = '*';
-//     char **split;
-//     int i;
-
-//     i = 0;
-
-//     split = malloc(sizeof(char **) * 2);
-//     split = ft_strsplit(s, c);
-
-//     while (*split)
-//     {
-//         printf("%s\n", *split);
-//         split++;
-//     }
-
-//     return (0);
-// }

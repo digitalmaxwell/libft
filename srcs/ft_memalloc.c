@@ -14,25 +14,17 @@
 
 void    *ft_memalloc(size_t size)
 {
-    void *arr;
+	void *arr;
 
-    arr = NULL;
+	arr = NULL;
 
-    if (size > 0 && size <= 2147483647)
-    {
-        arr = malloc(sizeof(int) * size);
-        if (arr == NULL)
-            return (NULL);
-        ft_bzero(arr, size);
-    }
+	if (size > 0 && size <= 2147483647)
+	{
+		arr = malloc(sizeof(int) * size);
+		if (arr == NULL)
+			return (NULL);
+		ft_bzero(arr, size);
+	}
 
-    return (arr);
+	return (arr);
 }
-
-// int     main()
-// {
-//     size_t size = 12;
-
-//     printf("%s", ft_memalloc(size));
-//     return (0);
-// }

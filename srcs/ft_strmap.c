@@ -12,22 +12,20 @@
 
 #include "../libft.h"
 
-char *ft_strmap(char const *s, char (*f)(char))
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-    char *ptr;
-    char *ptr2;
-    char *newStr;
+	char *ptr;
+	char *ptr2;
+	char *newStr;
 
-    if (!s || (newStr = malloc(sizeof(char) * ((size_t)ft_strlen(s) + 1))) == NULL)
-        return (NULL);
+	if (!s || !(newStr = malloc(sizeof(char) * ((size_t)ft_strlen(s) + 1))))
+		return (NULL);
 
-    ptr = (char *)s;
-    ptr2 = newStr;
+	ptr = (char *)s;
+	ptr2 = newStr;
 
-    while (*ptr)
-        *(ptr2++) = f(*(ptr++));
-
-    *ptr2 = '\0';
-
-    return (newStr);
+	while (*ptr)
+		*(ptr2++) = f(*(ptr++));
+	*ptr2 = '\0';
+	return (newStr);
 }

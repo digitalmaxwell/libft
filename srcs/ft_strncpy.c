@@ -12,12 +12,11 @@
 
 #include "../libft.h"
 
-char *ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	size_t i;
 
 	i = 0;
-
 	while (i < len)
 	{
 		if (src[i])
@@ -27,16 +26,5 @@ char *ft_strncpy(char *dst, const char *src, size_t len)
 				dst[i++] = '\0';
 		i++;
 	}
-
 	return (dst);
 }
-
-// int		main()
-// {
-// 	char test[] = "yoooooo";
-// 	char test2[] = "ayye";
-// 	int num = 5;
-
-// 	printf("%s", ft_strncpy(test, test2, num));
-// 	return (0);
-// }

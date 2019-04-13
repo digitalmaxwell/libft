@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t		i;
 	size_t		i2;
@@ -47,16 +47,5 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		i++;
 	}
-
 	return (NULL);
 }
-
-// int		main()
-// {
-// 	char haystack[] = "stringstring";
-// 	char needle[] = "ing";
-//     size_t len = 6;
-
-// 	printf("%s", strnstr(haystack, needle, len));
-// 	return (0);
-// }
