@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-static int	countWords(char *s, char c)
+static int		count_words(char *s, char c)
 {
 	int words;
 	int i;
@@ -21,7 +21,6 @@ static int	countWords(char *s, char c)
 	i = 0;
 	words = 0;
 	is_word = 0;
-
 	while (s[i])
 	{
 		if (s[i] == c)
@@ -39,7 +38,7 @@ static int	countWords(char *s, char c)
 	return (words);
 }
 
-static size_t	word_len(char const *s, char c)
+static size_t	find_word_len(char const *s, char c)
 {
 	size_t i;
 
@@ -49,14 +48,14 @@ static size_t	word_len(char const *s, char c)
 	return (i);
 }
 
-static char	*next_word(char const *s, char c)
+static char		*next_word(char const *s, char c)
 {
 	while (*s && *s == c)
 		s++;
 	return ((char *)s);
 }
 
-static void	clean(char **split, size_t cur)
+static void		clean(char **split, size_t cur)
 {
 	while (cur > 0)
 	{
@@ -66,36 +65,30 @@ static void	clean(char **split, size_t cur)
 	ft_strdel(split);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	size_t wordLen;
-	size_t strLen;
-	int words;
-	char **split;
-	int i;
+	int		i;
+	int		words;
+	char	**split;
 
 	if (!s)
 		return (NULL);
-
 	i = 0;
-	wordLen = 0;
-	strLen = ft_strlen((char *)s);
-	words = countWords((char *)s, c);
+	words = count_words((char *)s, c);
 	split = malloc(sizeof(char **) * (words + 1));
-
 	if (!split)
 		return (NULL);
 	while (i < words)
 	{
 		s = next_word(s, c);
-		split[i] = ft_strsub(s, 0, word_len(s, c));
+		split[i] = ft_strsub(s, 0, find_word_len(s, c));
 		if (!split[i])
 		{
 			clean(split, i);
 			return (NULL);
 		}
 		i++;
-		s += word_len(s, c);
+		s += find_word_len(s, c);
 	}
 	split[words] = 0;
 	return (split);

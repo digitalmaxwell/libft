@@ -14,17 +14,15 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t srcLen;
-	int i;
+	size_t	str_len;
+	int		i;
 
-	srcLen = ft_strlen(src);
+	str_len = ft_strlen(src);
 	i = 0;
-
-	while (i <= (int)srcLen)
+	while (i <= (int)str_len)
 	{
 		dst[i] = src[i];
 		i++;
 	}
-
 	return (dst);
 }

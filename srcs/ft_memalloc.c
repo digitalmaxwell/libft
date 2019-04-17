@@ -12,12 +12,11 @@
 
 #include "../libft.h"
 
-void    *ft_memalloc(size_t size)
+void	*ft_memalloc(size_t size)
 {
 	void *arr;
 
 	arr = NULL;
-
 	if (size > 0 && size <= 2147483647)
 	{
 		arr = malloc(sizeof(int) * size);
@@ -25,6 +24,5 @@ void    *ft_memalloc(size_t size)
 			return (NULL);
 		ft_bzero(arr, size);
 	}
-
 	return (arr);
 }

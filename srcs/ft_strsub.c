@@ -14,18 +14,16 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-    char *subStr;
+	char *sub_str;
 
 	if (!s)
 		return (NULL);
-
-    subStr = malloc(sizeof(char) * len + 1);
-
-	if (!subStr)
+	sub_str = malloc(sizeof(char) * len + 1);
+	if (!sub_str)
 		return (NULL);
 	while (start--)
 		s++;
-	ft_strncpy(subStr, s, len);
-	subStr[len] = '\0';
-    return (subStr);
+	ft_strncpy(sub_str, s, len);
+	sub_str[len] = '\0';
+	return (sub_str);
 }

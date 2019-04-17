@@ -14,12 +14,11 @@
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	char *s1p;
-	int i;
+	char	*s1p;
+	int		i;
 
 	s1p = s1;
 	i = 0;
-
 	while (*s1p)
 		s1p++;
 	while (*s2 && n--)
@@ -29,5 +28,5 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 		s2++;
 	}
 	*s1p = '\0';
-	return (s1);   
+	return (s1);
 }

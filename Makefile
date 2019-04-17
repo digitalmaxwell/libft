@@ -22,7 +22,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
 
 $(OBJ): $(FILES)
 	gcc -Wall -Wextra -Werror -c $(FILES) -I $(HEADER)

@@ -18,15 +18,14 @@ char	*ft_strchr(const char *s, int c)
 
 	s2 = (char *)s;
 	c = (unsigned char)c;
-
 	while (*s2)
 	{
 		if (*s2 == c)
 			return (s2);
 		s2++;
 	}
-
-	if (!*s2 && !c) return (s2);
-
-	else return (NULL);
+	if (!*s2 && !c)
+		return (s2);
+	else
+		return (NULL);
 }
